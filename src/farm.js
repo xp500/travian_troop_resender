@@ -49,6 +49,8 @@ function doLoop() {
                     takeAction();
                 }
             });
+        } else {
+ //           buildPorras();
         }
     });
 }
@@ -151,6 +153,17 @@ function resendTroops() {
                     casper.click('#btn_ok');
                     casper.capture('sent->' + def + '.png');
                 }
+            });
+        });
+    });
+}
+
+function buildPorras() {
+    casper.then(function() {
+        casper.thenClick('#n2 a', function() {
+            casper.thenClick('area[href="build.php?id=33"]', function() {
+                casper.click(x('//*[@class="details"]/a'));
+                casper.click('#s1');
             });
         });
     });
